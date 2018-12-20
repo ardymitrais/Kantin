@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CanteenApp</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/node/node_modules/bootstrap/dist/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/node/node_modules/datatables/media/css/jquery.dataTables.min.css}">
+</head>
+<body class="my-bg-primary">
+	<div class="container-fluid">
+		<div class="row my-header">
+    		<div class="col-sm-2">
+    			<span class="my-brand" th:text="${@environment.getProperty('my.app.name')}">Brand</span>
+    		</div>
+    		<div class="col-sm-8">
+   				<div class="row my-menu">
+					<div class="col">
+						<a href="javascript:;">Menu Makanan</a>
+					</div>
+					<div class="col">
+						<a href="javascript:;">Menu Minuman</a>
+					</div>
+					<div class="col">
+						<a href="javascript:;">Pesan</a>
+					</div>
+					<div class="col">
+						<a href="javascript:;">Histori</a>
+					</div>
+				</div>
+    		</div>
+    		<div class="col-sm-2 text-right">
+    			<a th:href="@{/logout}" class="btn btn-outline-light">Logout</a>
+    		</div>
+    	</div>
+	</div>
+	<div class="container-fluid">
+		<div class="card my-main-card">
+  			<div class="card-header my-main-card-header">
+  				List Makanan
+  			</div>
+  			<div class="body">
+	  			<div class="text">
+	  				<table class="table" id="my-table">
+						<thead>
+							<tr>
+								<th scope="col">No.</th>
+								<th scope="col">Nama Makanan</th>
+								<th scope="col">Harga</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="makanan, iter : ${listMakanan}">
+								<td th:text="@{${iter.index}+1}"/>
+								<td th:text="${makanan.nama}"/>
+								<td th:text="${makanan.harga}"/>
+							</tr>
+						</tbody>
+					</table>
+	  			</div>
+  			</div>
+  		</div>
+	</div>
+	<div class="container-fluid">
+		<footer>
+		  	<p>Posted by: Superman</p>
+		  	<p>Contact information: <a href="mailto:superman@mitrais.com">
+		 	superman@mitrais.com</a>.</p>
+		</footer>
+	</div>
+	<script th:src="@{/node/node_modules/jquery/dist/jquery.slim.js}"></script>
+    <script th:src="@{/node/node_modules/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <script th:src="@{/node/node_modules/datatables/media/js/jquery.dataTables.min.js}"></script>
+    <script>
+    	$(document).ready(function(){
+    		$("#my-table").dataTable();
+    	});
+    </script>
+    
+</body>
+</html>

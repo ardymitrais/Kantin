@@ -1,0 +1,7 @@
+- login
+- menu:
+	- master menu
+	- master user
+	- pesan makanan
+	- laporan
+- logout

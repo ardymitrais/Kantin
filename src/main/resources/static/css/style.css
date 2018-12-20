@@ -1,0 +1,80 @@
+body.my-bg-primary{
+	background-color: #d71149 !important;
+	color:white;
+}
+.card.my-bg-primary{
+	background-color: #d71149 !important;
+	color:white;
+}
+.my-brand{
+	color:white;
+	font-family:sans-serif;
+	text-shadow: 0px 4px #d71149;
+}
+.my-brand-in-white{
+	color:#d71149 !important;
+	font-family:sans-serif;
+	font-weight:bold;
+	text-shadow: 0px 1px gray;
+}
+.my-main-card{
+	background-color:white;
+	color:black;
+	margin: 20px 8%;
+	padding:10px;
+}
+.card-header.my-main-card-header{
+	background-color: inherit;
+	font-size:20px;
+	padding-bottom:25px;
+}
+div.my-header{
+	margin:20px;
+	padding:15px;
+	font-size: 20px;
+	background-color:#c30f42;
+	border-radius: 25px;
+}
+div.my-menu{
+	font-size:14px;
+	padding-top: 10px;
+	margin-left:150px;
+	margin-right:150px;
+	text-align: center;
+}
+
+div.my-menu > div.col{
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+}
+.my-menu > div > a{
+	text-decoration: none;
+	color:inherit;
+}
+.my-menu > div > a:hover{
+	text-decoration: underline;
+}
+
+footer{
+	font-size:12px;
+	text-align:center;
+	position: fixed;
+	bottom: 0;
+	left:50%;
+	width: 500px;
+	margin-bottom:15px;
+	margin-left: -250px;
+	
+}
+footer > p{
+	margin-bottom: 0px;
+}
+footer > p > a:hover{
+	text-decoration: none;
+}
+.dataTables_wrapper {
+	margin: 20px 20px;
+}
+table.dataTable {
+	padding:15px 0px;
+}
