@@ -11,7 +11,7 @@ import com.mitrais.service.MenuService;
 
 @Controller
 public class MakananController {
-	@GetMapping("/list")
+	@GetMapping({"/kantin/admin/list","/kantin/pelanggan/list"})
 	public String pageMenuIndex(Model model) {
 		
 		MenuService menuService = new MenuService();
