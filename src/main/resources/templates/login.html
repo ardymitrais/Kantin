@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>CanteenApp</title>
-<link rel="stylesheet" th:href="@{/css/style.css}">
-<link rel="stylesheet" th:href="@{/node/node_modules/bootstrap/dist/css/bootstrap.min.css}">
-<link rel="stylesheet" th:href="@{/node/node_modules/datatables/media/css/jquery.dataTables.min.css}">
+	<meta charset="ISO-8859-1">
+	<title th:text="${@environment.getProperty('my.app.name')}">App Name</title>
+	<th:block th:insert="fragments/myFragment :: default-css"></th:block>
 </head>
 <body class="my-bg-primary">
+
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 offset-md-4 mt-5">
@@ -32,17 +31,8 @@
   			</div>
   		</div>
 	</div>
-	<div class="container-fluid" th:insert="fragments/footer.html :: footer">
-		
-	</div>
-	<script th:src="@{/node/node_modules/jquery/dist/jquery.slim.js}"></script>
-    <script th:src="@{/node/node_modules/bootstrap/dist/js/bootstrap.min.js}"></script>
-    <script th:src="@{/node/node_modules/datatables/media/js/jquery.dataTables.min.js}"></script>
-    <script>
-    	$(document).ready(function(){
-    		$("#my-table").dataTable();
-    	});
-    </script>
-    
+	
+	<div class="container-fluid" th:insert="fragments/myFragment :: myFooter"></div>
+	<th:block th:insert="fragments/myFragment :: default-js"></th:block>
 </body>
 </html>

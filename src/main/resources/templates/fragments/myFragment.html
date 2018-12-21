@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+	<head th:fragment="myHeader">
+		<meta charset="ISO-8859-1">
+		<title th:text="${@environment.getProperty('my.app.name')}">App Name</title>
+		<th:block th:insert="this :: default-css"></th:block>
+		<th:block layout:fragment="additional-css"></th:block>
+	</head>
+	
+	<th:block th:fragment="default-css">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/node/node_modules/bootstrap/dist/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/node/node_modules/datatables/media/css/jquery.dataTables.min.css}">
+	</th:block>
+	
+	
+	<th:block th:fragment="default-js">
+		<script th:src="@{/node/node_modules/jquery/dist/jquery.slim.js}"></script>
+	    <script th:src="@{/node/node_modules/bootstrap/dist/js/bootstrap.min.js}"></script>
+	    <script th:src="@{/node/node_modules/datatables/media/js/jquery.dataTables.min.js}"></script>
+	    <th:block layout:fragment="additional-js"></th:block>
+	</th:block>
+
+	<div th:fragment="myNavigation" class="row my-header">
+		<div class="col-sm-2">
+			<span class="my-brand"
+				th:text="${@environment.getProperty('my.app.name')}">Brand</span>
+		</div>
+		<div class="col-sm-8">
+			<div class="row my-menu">
+				<div class="col">
+					<a href="javascript:;">Menu Makanan</a>
+				</div>
+				<div class="col">
+					<a href="javascript:;">Menu Minuman</a>
+				</div>
+				<div class="col">
+					<a href="javascript:;">Pesan</a>
+				</div>
+				<div class="col">
+					<a href="javascript:;">Histori</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2 text-right">
+			welcome, <span sec:authentication="name">user login</span> 
+			<a th:href="@{/logout}" class="btn btn-outline-light">Logout</a>
+		</div>
+	</div>
+	
+	<footer th:fragment="myFooter">
+	  	<p>Posted by: Superman</p>
+	  	<p>Contact information: <a href="mailto:superman@mitrais.com">
+	 	superman@mitrais.com</a>.</p>
+	</footer>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/layout1">
+<head>
+<title></title>
+<th:block layout:fragment="additional-css"></th:block>
+</head>
+<body>
+	<h2 layout:fragment="page-title">Daftar Menu Makanan dan Minuman</h2>
+	<div class="body" layout:fragment="content">
+		<div class="text">
+			<table class="table" id="my-table">
+				<thead>
+					<tr>
+						<th scope="col">No.</th>
+						<th scope="col">Kategori</th>
+						<th scope="col">Nama Makanan</th>
+						<th scope="col">Harga</th>
+						<th scope="col">Opsi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="makanan, iter : ${dataMakanan}">
+						<td th:text="@{${iter.index}+1}" />
+						<td th:text="${makanan.category.categoryName}" />
+						<td th:text="${makanan.menuName}" />
+						<td th:text="${makanan.menuPrice}" />
+						<td>
+							<a class="btn btn-xs" th:href="@{/admin/menu/edit/{id}(id=${makanan.menuId})}">Edit</a>
+							<a class="btn btn-xs" th:href="@{/admin/menu/delete/{id}(id=${makanan.menuId})}">Hapus</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<th:block layout:fragment="additional-js">
+		<script>
+			console.log({test:"test"});
+		</script>
+	</th:block>
+</body>
+</html>

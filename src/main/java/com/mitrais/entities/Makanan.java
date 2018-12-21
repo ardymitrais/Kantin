@@ -1,12 +1,6 @@
 package com.mitrais.entities;
 
-import org.springframework.stereotype.Component;
-
-import com.mitrais.model.interfaces.Menu;
-
-
-@Component
-public class Makanan implements Menu{
+public class Makanan{
 	private String nama;
 	private int harga;
 	public Makanan() {
