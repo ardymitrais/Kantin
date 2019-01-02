@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Menu {
 	@Id
 	@Column(name="menu_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int menuId;
 	
 	@Column(name="menu_name")

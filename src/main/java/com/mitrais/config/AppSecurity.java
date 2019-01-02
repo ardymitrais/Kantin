@@ -43,7 +43,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers("/pelanggan/**").hasAuthority("PELANGGAN")
 		.and()
 		.formLogin()
-		.loginPage("/login").defaultSuccessUrl("/list").failureUrl("/login?error=true")
+		.loginPage("/login").defaultSuccessUrl("/kantin/home").failureUrl("/login?error=true")
 		.usernameParameter("username")
 		.passwordParameter("password")
 		.permitAll()

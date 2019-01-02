@@ -18,6 +18,6 @@ public class LoginController {
 	@GetMapping("/kantin/home")
 	public String pageHome(HttpServletRequest req) {
 		Enumeration<String> test = req.getSession().getAttributeNames();
-		return "login";
+		return "konten/home";
 	}
 }

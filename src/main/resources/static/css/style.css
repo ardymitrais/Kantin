@@ -42,6 +42,9 @@ div.my-menu{
 	margin-right:150px;
 	text-align: center;
 }
+div.my-form{
+	padding: 20px;
+}
 
 div.my-menu > div.col{
 	border-right: 1px solid white;
