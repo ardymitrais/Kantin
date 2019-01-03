@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html 
-	xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="layout/layout1">
@@ -9,25 +8,38 @@
 <th:block layout:fragment="additional-css"></th:block>
 </head>
 <body>
-	<h2 layout:fragment="page-title">Buat Menu Makanan dan Minuman Baru</h2>
+	<h2 layout:fragment="page-title">Buat Menu Makanan dan Minuman
+		Baru</h2>
 	<div class="body" layout:fragment="content">
 		<div class="my-form">
 			<form method="post" th:action="@{${submitUrl}}" th:object="${menu}">
 				<div class="form-group">
-			    	<label for="namaMenu">Nama Menu</label>
-				    <input th:field="*{menuName}" type="text" class="form-control" name="namaMenu" id="namaMenu" placeholder="Masukkan nama menu disini..">
-			  	</div>
+					<label for="namaMenu">Nama Menu</label> <input type="hidden"
+						th:field="*{menuId}" /> <input th:field="*{menuName}" type="text"
+						class="form-control" name="namaMenu" id="namaMenu"
+						placeholder="Masukkan nama menu disini.."> <label
+						th:if="${#fields.hasErrors('menuName')}" th:errors="*{menuName}"
+						class="validation-message"></label>
+				</div>
 				<div class="form-group">
-			    	<label for="hargaMenu">Harga Menu</label>
-				    <input th:field="*{menuPrice}" type="number" class="form-control" name="hargaMenu" id="hargaMenu" placeholder="Masukkan harga menu disini..">
-			  	</div>
-			  	<div class="form-group">
-			    	<label for="kategoriMenu">Kategori Menu</label>
-			    	<select th:field="*{category}" class="form-control" id="kategoriMenu" name="kategoriMenu">
-				    	<option th:each="kategori : ${dataKategori}" th:value="${kategori.categoryId}" th:text="${kategori.categoryName}">Kategori Menu</option>
-				    </select>
-			  	</div>
-			  	<button type="submit" class="btn btn-primary">Simpan</button>
+					<label for="hargaMenu">Harga Menu</label> <input
+						th:field="*{menuPrice}" type="number" class="form-control"
+						name="hargaMenu" id="hargaMenu"
+						placeholder="Masukkan harga menu disini.."> <label
+						th:if="${#fields.hasErrors('menuPrice')}" th:errors="*{menuPrice}"
+						class="validation-message"></label>
+				</div>
+				<div class="form-group">
+					<label for="kategoriMenu">Kategori Menu</label> <select
+						th:field="*{category}" class="form-control" id="kategoriMenu"
+						name="kategoriMenu">
+						<option th:each="kategori : ${dataKategori}"
+							th:value="${kategori.categoryId}"
+							th:text="${kategori.categoryName}">Kategori Menu</option>
+					</select> <label th:if="${#fields.hasErrors('category')}"
+						th:errors="*{category}" class="validation-message"></label>
+				</div>
+				<button type="submit" class="btn btn-primary">Simpan</button>
 			</form>
 		</div>
 	</div>

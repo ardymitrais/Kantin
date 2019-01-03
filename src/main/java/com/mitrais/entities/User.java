@@ -12,20 +12,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="users")
 public class User {
 	@Id
 	@Column(name="user_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer userId;
 	
 	@Column(name="user_name")
+	@NotEmpty(message = "Nama tidak boleh kosong")
 	private String userName;
 	
 	@Column(name="user_password")
+	@NotEmpty(message = "Password tidak boleh kosong")
 	private String userPassword;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
@@ -34,10 +43,6 @@ public class User {
 				inverseJoinColumns= {@JoinColumn(name="role_id")}
 				)
 	private Set<Roles> roles;
-
-	public User() {
-		
-	}
 	
 	public User(User user) {
 		this.userId = user.getUserId();
@@ -45,37 +50,4 @@ public class User {
 		this.userPassword = user.getUserPassword();
 		this.roles = user.getRoles();
 	}
-
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getUserPassword() {
-		return userPassword;
-	}
-
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
-
-	public Set<Roles> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Roles> roles) {
-		this.roles = roles;
-	}
-	
 }

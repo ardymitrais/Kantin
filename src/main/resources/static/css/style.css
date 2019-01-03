@@ -11,6 +11,9 @@ body.my-bg-primary{
 	font-family:sans-serif;
 	text-shadow: 0px 4px #d71149;
 }
+.my-user-login{
+	margin-right: 10px;	
+}
 .my-brand-in-white{
 	color:#d71149 !important;
 	font-family:sans-serif;

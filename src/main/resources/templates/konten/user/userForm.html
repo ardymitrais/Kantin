@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout1}">
+<head>
+<title></title>
+<th:block layout:fragment="additional-css"></th:block>
+</head>
+<body>
+	<h2 layout:fragment="page-title">Buat / Ubah User</h2>
+	<div class="body" layout:fragment="content">
+		<div class="my-form">
+			<form method="post" th:action="@{/admin/user/simpan}" th:object="${user}">
+				<div class="form-group">
+			    	<label for="userName">Nama User</label>
+			    	<input type="hidden" th:field="*{userId}"/>
+			    	<input th:field="*{userName}" type="text" class="form-control" name="userName" id="userName" placeholder="Masukkan nama user disini..">
+			  		<label th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="validation-message"></label>
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="userPassword">Password</label>
+			    	<input type="password" class="form-control" name="userPassword"  th:value="${user.userId} == null ? '' : '~stillsame~' " th:placeholder="${user.userId} == null ? 'Masukkan password disini..' : 'Masukkan password baru disini atau biarkan kosong jika tidak ingin mengganti password..' "/>
+				    <label th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}" class="validation-message"></label>
+			  	</div>
+				<div class="form-group">
+			    	<label>Role User</label>
+			    	<div th:each="roleOpt : ${dataRole}" class="form-check">
+					  	<input th:id="'myRole'+${roleOpt.roleId}" th:value="${roleOpt.roleId}" th:field="*{roles}" type="checkbox" class="form-check-input"/>
+					  	<label th:text="${roleOpt.roleName}" th:for="'myRole'+${roleOpt.roleId}" class="form-check-label">label</label>
+					</div>
+			  	</div>
+			  	<button type="submit" class="btn btn-primary">Simpan</button>
+			</form>
+		</div>
+	</div>
+	<th:block layout:fragment="additional-js">
+		<script>
+			console.log({test:"page user baru"});
+		</script>
+	</th:block>
+</body>
+</html>

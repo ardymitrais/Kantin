@@ -1,7 +1,5 @@
 package com.mitrais.controller;
 
-import java.util.Enumeration;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +15,6 @@ public class LoginController {
 	
 	@GetMapping("/kantin/home")
 	public String pageHome(HttpServletRequest req) {
-		Enumeration<String> test = req.getSession().getAttributeNames();
 		return "konten/home";
 	}
 }

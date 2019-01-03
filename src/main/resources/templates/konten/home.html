@@ -10,7 +10,11 @@
 </head>
 <body>
 	<h2 layout:fragment="page-title">Welcome, <span sec:authentication="name">user login</span></h2>
-	<div class="body" layout:fragment="content">
+	
+	<div class="body" layout:fragment="content" style="text-align:center">
+	<br>
+		<strong>Disini anda dapat menikmati makanan sehat dan segar yang kami hidangkan dengan cinta :)</strong> <br>
+		<img th:src="@{/images/canteen.jpg}" style="width:50%; height:auto; margin:20px 0px 40px 0px">
 	</div>
 	<th:block layout:fragment="additional-js">
 		<script>

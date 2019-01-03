@@ -3,7 +3,6 @@ package com.mitrais;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Optional;
-import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.mitrais.entities.Roles;
 import com.mitrais.entities.User;
 import com.mitrais.repository.UserRepository;
 

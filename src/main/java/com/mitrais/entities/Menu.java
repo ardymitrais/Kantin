@@ -8,7 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public class Menu {
@@ -18,44 +28,15 @@ public class Menu {
 	private int menuId;
 	
 	@Column(name="menu_name")
+	@NotEmpty(message = "Nama menu tidak boleh kosong")
 	private String menuName;
 
 	@Column(name="menu_price")
+	@Min(value=1, message="Harga menu tidak boleh kurang dari 1")
 	private int menuPrice;
 
 	@ManyToOne
 	@JoinColumn(name="category_id")
+	@NotNull(message = "kategori menu tidak boleh kosong")
 	private Category category;
-
-	public int getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(int menuId) {
-		this.menuId = menuId;
-	}
-
-	public String getMenuName() {
-		return menuName;
-	}
-
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
-
-	public int getMenuPrice() {
-		return menuPrice;
-	}
-
-	public void setMenuPrice(int menuPrice) {
-		this.menuPrice = menuPrice;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}	
 }

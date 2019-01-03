@@ -38,23 +38,22 @@
 				th:text="${@environment.getProperty('my.app.name')}">Brand</span>
 		</div>
 		<div class="col-sm-8">
-			<div class="row my-menu">
+			<div class="row my-menu" sec:authorize="hasAuthority('ADMIN')">
 				<div class="col">
 					<a th:href="@{/admin/menu/index}">Menu Makanan & Minuman</a>
 				</div>
 				<div class="col">
 					<a th:href="@{/admin/user/index}">User</a>
 				</div>
+			</div>
+			<div class="row my-menu" sec:authorize="hasAuthority('PELANGGAN')">
 				<div class="col">
-					<a href="javascript:;">Pesan</a>
-				</div>
-				<div class="col">
-					<a href="javascript:;">Histori</a>
+					<a th:href="@{/pelanggan/menu/index}">Menu Makanan & Minuman</a>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-2 text-right">
-			welcome, <span sec:authentication="name">user login</span> 
+			welcome, <span class="my-user-login" sec:authentication="name">user login</span> 
 			<a th:href="@{/logout}" class="btn btn-outline-light">Logout</a>
 		</div>
 	</div>

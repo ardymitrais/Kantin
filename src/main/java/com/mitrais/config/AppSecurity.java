@@ -38,7 +38,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/css/*","/js/*","/images/*","/node/*").permitAll()
-		.antMatchers("/home").authenticated()
+		.antMatchers("/kantin/home").authenticated()
 		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.antMatchers("/pelanggan/**").hasAuthority("PELANGGAN")
 		.and()
